@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hackathons &amp; Projects</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #0f1419;
+      --surface: #1a2332;
+      --text: #e7ecf3;
+      --muted: #9aa7b8;
+      --accent: #5b9cff;
+      --border: rgba(255, 255, 255, 0.08);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f4f7fb;
+        --surface: #ffffff;
+        --text: #1b2430;
+        --muted: #5b6778;
+        --accent: #1d6fe8;
+        --border: rgba(15, 20, 25, 0.08);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top, rgba(91, 156, 255, 0.12), transparent 40%), var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 4rem;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      letter-spacing: -0.03em;
+    }
+
+    .intro {
+      margin: 0;
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .cards {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    .card h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.35rem;
+    }
+
+    .card p {
+      margin: 0 0 1rem;
+      color: var(--muted);
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .links a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .links a:hover,
+    .links a:focus-visible {
+      background: rgba(91, 156, 255, 0.12);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Hackathons &amp; Projects</h1>
+      <p class="intro">
+        Selected hackathon work and project builds by Mohammad Teimori.
+      </p>
+    </header>
+
+    <section class="cards" aria-label="Projects">
+      <article class="card">
+        <h2>SolAIr Guard</h2>
+        <p>
+          NASA Space Apps Hackathon 2023 with team Solar Comrades. Won 2nd prize locally
+          and Best Use of Data. Contributors: Ciel Frey, Muhammad Banbhan, Thomas Ville,
+          and Mohammad Teimori.
+        </p>
+        <div class="links">
+          <a href="https://www.spaceappschallenge.org/2023/find-a-team/solar-comrades/?tab=project">Space Apps project</a>
+          <a href="https://github.com/umar-b/SPACE-APPS-CHALLENGE-2023">GitHub repo</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Vigil</h2>
+        <p>
+          RAISE/Vultr-track medical-device post-market surveillance and AI workflow project.
+        </p>
+        <div class="links">
+          <a href="https://github.com/umar-b/vultr-track">GitHub repo</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>AI Service Desk Autopilot</h2>
+        <p>
+          START Hack / Techbold-track technician workflow project.
+        </p>
+        <div class="links">
+          <a href="https://github.com/umar-b/techbold_track_start_hack">GitHub repo</a>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      <p>
+        <a href="https://github.com/MohammadTeimori">GitHub profile</a>
+      </p>
+    </footer>
+  </main>
+</body>
+</html>
