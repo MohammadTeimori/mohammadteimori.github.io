@@ -120,6 +120,21 @@
     footer a {
       color: var(--accent);
     }
+
+    .video {
+      margin: 0 0 1rem;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #000;
+    }
+
+    .video iframe {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+    }
   </style>
 </head>
 <body>
@@ -150,6 +165,15 @@
         <p>
           RAISE/Vultr-track medical-device post-market surveillance and AI workflow project.
         </p>
+        <div class="video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/bNshBdtpnlM"
+            title="Vigil demo video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
         <div class="links">
           <a href="https://github.com/umar-b/vultr-track">GitHub repo</a>
         </div>
