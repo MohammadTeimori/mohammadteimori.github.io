@@ -3,130 +3,198 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hackathons &amp; Projects</title>
+  <meta name="description" content="Hackathon projects by Mohammad Teimori: SolAIr Guard, Vigil, and AI Service Desk Autopilot.">
+  <title>Hackathons &amp; Projects · Mohammad Teimori</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
   <style>
     :root {
-      color-scheme: light dark;
-      --bg: #0f1419;
-      --surface: #1a2332;
-      --text: #e7ecf3;
-      --muted: #9aa7b8;
-      --accent: #5b9cff;
-      --border: rgba(255, 255, 255, 0.08);
+      color-scheme: light;
+      --bg: oklch(1 0 0);
+      --surface: oklch(0.985 0.012 150);
+      --surface-strong: oklch(0.965 0.028 148);
+      --ink: oklch(0.26 0.04 155);
+      --muted: oklch(0.46 0.035 152);
+      --primary: oklch(0.58 0.11 152);
+      --primary-soft: oklch(0.92 0.045 150);
+      --primary-ink: oklch(0.99 0.005 150);
+      --border: oklch(0.9 0.022 150);
+      --shadow: oklch(0.35 0.04 155 / 0.08);
+      --radius-lg: 1.25rem;
+      --radius-md: 0.875rem;
+      --radius-pill: 999px;
+      --space-1: 0.5rem;
+      --space-2: 0.75rem;
+      --space-3: 1rem;
+      --space-4: 1.5rem;
+      --space-5: 2rem;
+      --space-6: 3rem;
+      --font-display: "Young Serif", Georgia, serif;
+      --font-body: "Manrope", system-ui, sans-serif;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    @media (prefers-color-scheme: light) {
-      :root {
-        --bg: #f4f7fb;
-        --surface: #ffffff;
-        --text: #1b2430;
-        --muted: #5b6778;
-        --accent: #1d6fe8;
-        --border: rgba(15, 20, 25, 0.08);
-      }
-    }
-
-    * {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
       min-height: 100vh;
-      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-      background: radial-gradient(circle at top, rgba(91, 156, 255, 0.12), transparent 40%), var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% -8%, oklch(0.94 0.05 148 / 0.55), transparent 34%),
+        radial-gradient(circle at 88% 0%, oklch(0.93 0.04 155 / 0.45), transparent 28%),
+        var(--bg);
     }
 
-    main {
-      max-width: 960px;
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: min(100% - 2rem, 52rem);
       margin: 0 auto;
-      padding: 3rem 1.25rem 4rem;
+      padding: clamp(2rem, 5vw, 3.5rem) 0 clamp(3rem, 6vw, 4.5rem);
     }
 
-    header {
-      margin-bottom: 2.5rem;
-    }
-
-    h1 {
-      margin: 0 0 0.75rem;
-      font-size: clamp(2rem, 5vw, 2.75rem);
-      letter-spacing: -0.03em;
-    }
-
-    .intro {
-      margin: 0;
-      max-width: 42rem;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .cards {
-      display: grid;
-      gap: 1.25rem;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 1.5rem;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-    }
-
-    .card h2 {
-      margin: 0 0 0.5rem;
-      font-size: 1.35rem;
-    }
-
-    .card p {
-      margin: 0 0 1rem;
-      color: var(--muted);
-    }
-
-    .links {
+    .topbar {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .links a {
-      display: inline-flex;
       align-items: center;
-      padding: 0.55rem 0.9rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: background 0.15s ease, transform 0.15s ease;
+      justify-content: space-between;
+      gap: var(--space-3);
+      margin-bottom: clamp(2rem, 5vw, 3rem);
     }
 
-    .links a:hover,
-    .links a:focus-visible {
-      background: rgba(91, 156, 255, 0.12);
+    .topbar a {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--primary);
+      padding: 0.55rem 0.95rem;
+      border-radius: var(--radius-pill);
+      background: var(--primary-soft);
+      transition: background 180ms var(--ease-out), transform 180ms var(--ease-out);
+    }
+
+    .topbar a:hover,
+    .topbar a:focus-visible {
+      background: oklch(0.88 0.06 150);
       transform: translateY(-1px);
       outline: none;
     }
 
-    footer {
-      margin-top: 2.5rem;
-      color: var(--muted);
-      font-size: 0.95rem;
+    .hero {
+      margin-bottom: clamp(2rem, 4vw, 2.75rem);
+      max-width: 38rem;
     }
 
-    footer a {
-      color: var(--accent);
+    .hero h1 {
+      margin: 0 0 var(--space-2);
+      font-family: var(--font-display);
+      font-size: clamp(2.35rem, 6vw, 3.5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+      color: oklch(0.22 0.045 154);
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 36ch;
+      color: var(--muted);
+      font-size: 1.0625rem;
+      text-wrap: pretty;
+    }
+
+    .projects {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .project {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.25rem, 3vw, 1.75rem);
+      box-shadow: 0 10px 30px var(--shadow);
+      animation: rise 640ms var(--ease-out) both;
+    }
+
+    .project:nth-child(1) { animation-delay: 80ms; }
+    .project:nth-child(2) { animation-delay: 160ms; }
+    .project:nth-child(3) { animation-delay: 240ms; }
+
+    .project.featured {
+      background: linear-gradient(
+        180deg,
+        oklch(0.975 0.025 149) 0%,
+        var(--surface) 42%
+      );
+    }
+
+    .project-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-2) var(--space-3);
+      margin-bottom: var(--space-2);
+    }
+
+    .project h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.45rem, 3vw, 1.75rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin: 0 0 var(--space-3);
+      padding: 0;
+      list-style: none;
+    }
+
+    .meta li {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--primary);
+      background: var(--primary-soft);
+      padding: 0.3rem 0.65rem;
+      border-radius: var(--radius-pill);
+    }
+
+    .project p {
+      margin: 0 0 var(--space-3);
+      color: var(--muted);
+      max-width: 62ch;
+      text-wrap: pretty;
     }
 
     .video {
-      margin: 0 0 1rem;
-      border-radius: 12px;
+      margin: 0 0 var(--space-3);
+      border-radius: var(--radius-md);
       overflow: hidden;
       border: 1px solid var(--border);
-      background: #000;
+      background: oklch(0.18 0.02 155);
     }
 
     .video iframe {
@@ -135,35 +203,145 @@
       aspect-ratio: 16 / 9;
       border: 0;
     }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .actions a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.62rem 1rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition:
+        background 180ms var(--ease-out),
+        border-color 180ms var(--ease-out),
+        transform 180ms var(--ease-out);
+    }
+
+    .actions a.primary {
+      background: var(--primary);
+      color: var(--primary-ink);
+    }
+
+    .actions a.primary:hover,
+    .actions a.primary:focus-visible {
+      background: oklch(0.52 0.12 152);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .actions a.secondary {
+      background: var(--bg);
+      color: var(--ink);
+      border-color: var(--border);
+    }
+
+    .actions a.secondary:hover,
+    .actions a.secondary:focus-visible {
+      background: var(--surface-strong);
+      border-color: oklch(0.82 0.035 150);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .footer {
+      margin-top: clamp(2.5rem, 5vw, 3.25rem);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9375rem;
+    }
+
+    .footer p {
+      margin: 0;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .project {
+        animation: none;
+      }
+
+      .actions a,
+      .topbar a {
+        transition: none;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .project-head {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <header>
-      <h1>Hackathons &amp; Projects</h1>
-      <p class="intro">
-        Selected hackathon work and project builds by Mohammad Teimori.
-      </p>
+  <div class="page">
+    <header class="topbar">
+      <span class="site-name">Mohammad Teimori</span>
+      <a href="https://github.com/MohammadTeimori">GitHub profile</a>
     </header>
 
-    <section class="cards" aria-label="Projects">
-      <article class="card">
-        <h2>SolAIr Guard</h2>
+    <section class="hero" aria-labelledby="page-title">
+      <h1 id="page-title">Hackathons &amp; Projects</h1>
+      <p>Selected builds from NASA Space Apps, RAISE, and START Hack.</p>
+    </section>
+
+    <section class="projects" aria-label="Projects">
+      <article class="project">
+        <div class="project-head">
+          <h2>SolAIr Guard</h2>
+        </div>
+        <ul class="meta">
+          <li>NASA Space Apps 2023</li>
+          <li>Solar Comrades</li>
+          <li>2nd prize locally</li>
+          <li>Best Use of Data</li>
+        </ul>
         <p>
-          NASA Space Apps Hackathon 2023 with team Solar Comrades. Won 2nd prize locally
-          and Best Use of Data. Contributors: Ciel Frey, Muhammad Banbhan, Thomas Ville,
-          and Mohammad Teimori.
+          Space weather monitoring with team Solar Comrades. Contributors: Ciel Frey,
+          Muhammad Banbhan, Thomas Ville, and Mohammad Teimori.
         </p>
-        <div class="links">
-          <a href="https://www.spaceappschallenge.org/2023/find-a-team/solar-comrades/?tab=project">Space Apps project</a>
-          <a href="https://github.com/umar-b/SPACE-APPS-CHALLENGE-2023">GitHub repo</a>
+        <div class="actions">
+          <a class="primary" href="https://www.spaceappschallenge.org/2023/find-a-team/solar-comrades/?tab=project">View Space Apps project</a>
+          <a class="secondary" href="https://github.com/umar-b/SPACE-APPS-CHALLENGE-2023">Open GitHub repo</a>
         </div>
       </article>
 
-      <article class="card">
-        <h2>Vigil</h2>
+      <article class="project featured">
+        <div class="project-head">
+          <h2>Vigil</h2>
+        </div>
+        <ul class="meta">
+          <li>RAISE Hackathon 2026</li>
+          <li>Vultr track</li>
+          <li>Medical AI workflow</li>
+        </ul>
         <p>
-          RAISE/Vultr-track medical-device post-market surveillance and AI workflow project.
+          Post-market surveillance agent for EU MDR medical devices: triage, risk-file
+          checks, precedent retrieval, and reportability decisions.
         </p>
         <div class="video">
           <iframe
@@ -174,27 +352,31 @@
             allowfullscreen
           ></iframe>
         </div>
-        <div class="links">
-          <a href="https://github.com/umar-b/vultr-track">GitHub repo</a>
+        <div class="actions">
+          <a class="primary" href="https://github.com/umar-b/vultr-track">Open GitHub repo</a>
         </div>
       </article>
 
-      <article class="card">
-        <h2>AI Service Desk Autopilot</h2>
+      <article class="project">
+        <div class="project-head">
+          <h2>AI Service Desk Autopilot</h2>
+        </div>
+        <ul class="meta">
+          <li>START Hack</li>
+          <li>Techbold track</li>
+        </ul>
         <p>
-          START Hack / Techbold-track technician workflow project.
+          Technician workflow automation for service desk operations, built during START Hack.
         </p>
-        <div class="links">
-          <a href="https://github.com/umar-b/techbold_track_start_hack">GitHub repo</a>
+        <div class="actions">
+          <a class="primary" href="https://github.com/umar-b/techbold_track_start_hack">Open GitHub repo</a>
         </div>
       </article>
     </section>
 
-    <footer>
-      <p>
-        <a href="https://github.com/MohammadTeimori">GitHub profile</a>
-      </p>
+    <footer class="footer">
+      <p>Portfolio: <a href="https://mohammadteimori.github.io">mohammadteimori.github.io</a></p>
     </footer>
-  </main>
+  </div>
 </body>
 </html>
