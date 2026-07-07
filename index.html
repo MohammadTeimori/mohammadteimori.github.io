@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mohammad Teimori — improving healthcare through technology.">
-  <title>Mohammad Teimori · Healthcare Technology</title>
+  <meta name="description" content="Hackathon projects by Mohammad Teimori: SolAIr Guard, Vigil, and AI Service Desk Autopilot.">
+  <title>Hackathons &amp; Projects · Mohammad Teimori</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Young+Serif&display=swap" rel="stylesheet">
@@ -96,35 +96,15 @@
 
     .hero {
       margin-bottom: clamp(2rem, 4vw, 2.75rem);
-      max-width: 42rem;
-      padding: clamp(1.75rem, 4vw, 2.5rem);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-      background: linear-gradient(
-        145deg,
-        oklch(0.98 0.02 150) 0%,
-        var(--surface) 55%,
-        oklch(0.97 0.03 148) 100%
-      );
-      box-shadow: 0 12px 32px var(--shadow);
-    }
-
-    .hero-eyebrow {
-      display: inline-block;
-      margin: 0 0 var(--space-3);
-      font-size: 0.875rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--primary);
+      max-width: 38rem;
     }
 
     .hero h1 {
-      margin: 0 0 var(--space-3);
+      margin: 0 0 var(--space-2);
       font-family: var(--font-display);
-      font-size: clamp(2.2rem, 5.5vw, 3.35rem);
+      font-size: clamp(2.35rem, 6vw, 3.5rem);
       font-weight: 400;
-      line-height: 1.08;
+      line-height: 1.05;
       letter-spacing: -0.03em;
       text-wrap: balance;
       color: oklch(0.22 0.045 154);
@@ -132,21 +112,142 @@
 
     .hero p {
       margin: 0;
-      max-width: 42ch;
+      max-width: 36ch;
       color: var(--muted);
       font-size: 1.0625rem;
       text-wrap: pretty;
     }
 
-    .hero p a {
-      color: var(--primary);
-      font-weight: 600;
-      text-decoration: none;
+    .projects {
+      display: grid;
+      gap: var(--space-4);
     }
 
-    .hero p a:hover,
-    .hero p a:focus-visible {
-      text-decoration: underline;
+    .project {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: clamp(1.25rem, 3vw, 1.75rem);
+      box-shadow: 0 10px 30px var(--shadow);
+      animation: rise 640ms var(--ease-out) both;
+    }
+
+    .project:nth-child(1) { animation-delay: 80ms; }
+    .project:nth-child(2) { animation-delay: 160ms; }
+    .project:nth-child(3) { animation-delay: 240ms; }
+
+    .project.featured {
+      background: linear-gradient(
+        180deg,
+        oklch(0.975 0.025 149) 0%,
+        var(--surface) 42%
+      );
+    }
+
+    .project-head {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-2) var(--space-3);
+      margin-bottom: var(--space-2);
+    }
+
+    .project h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(1.45rem, 3vw, 1.75rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin: 0 0 var(--space-3);
+      padding: 0;
+      list-style: none;
+    }
+
+    .meta li {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: var(--primary);
+      background: var(--primary-soft);
+      padding: 0.3rem 0.65rem;
+      border-radius: var(--radius-pill);
+    }
+
+    .project p {
+      margin: 0 0 var(--space-3);
+      color: var(--muted);
+      max-width: 62ch;
+      text-wrap: pretty;
+    }
+
+    .video {
+      margin: 0 0 var(--space-3);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: oklch(0.18 0.02 155);
+    }
+
+    .video iframe {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .actions a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.62rem 1rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition:
+        background 180ms var(--ease-out),
+        border-color 180ms var(--ease-out),
+        transform 180ms var(--ease-out);
+    }
+
+    .actions a.primary {
+      background: var(--primary);
+      color: var(--primary-ink);
+    }
+
+    .actions a.primary:hover,
+    .actions a.primary:focus-visible {
+      background: oklch(0.52 0.12 152);
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .actions a.secondary {
+      background: var(--bg);
+      color: var(--ink);
+      border-color: var(--border);
+    }
+
+    .actions a.secondary:hover,
+    .actions a.secondary:focus-visible {
+      background: var(--surface-strong);
+      border-color: oklch(0.82 0.035 150);
+      transform: translateY(-1px);
       outline: none;
     }
 
@@ -162,13 +263,36 @@
       margin: 0;
     }
 
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
       }
 
+      .project {
+        animation: none;
+      }
+
+      .actions a,
       .topbar a {
         transition: none;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .project-head {
+        display: block;
       }
     }
   </style>
@@ -181,12 +305,73 @@
     </header>
 
     <section class="hero" aria-labelledby="page-title">
-      <p class="hero-eyebrow">Mohammad Teimori</p>
-      <h1 id="page-title">Improve healthcare through technology</h1>
-      <p>
-        Clinical data, reporting, and software for better patient care.
-        <a href="https://github.com/MohammadTeimori">GitHub</a>
-      </p>
+      <h1 id="page-title">Hackathons &amp; Projects</h1>
+      <p>Selected builds from NASA Space Apps, RAISE, and START Hack.</p>
+    </section>
+
+    <section class="projects" aria-label="Projects">
+      <article class="project">
+        <div class="project-head">
+          <h2>SolAIr Guard</h2>
+        </div>
+        <ul class="meta">
+          <li>NASA Space Apps 2023</li>
+          <li>Solar Comrades</li>
+          <li>2nd prize locally</li>
+          <li>Best Use of Data</li>
+        </ul>
+        <p>
+          Space weather monitoring with team Solar Comrades. Contributors: Ciel Frey,
+          Muhammad Banbhan, Thomas Ville, and Mohammad Teimori.
+        </p>
+        <div class="actions">
+          <a class="primary" href="https://www.spaceappschallenge.org/2023/find-a-team/solar-comrades/?tab=project">View Space Apps project</a>
+          <a class="secondary" href="https://github.com/umar-b/SPACE-APPS-CHALLENGE-2023">Open GitHub repo</a>
+        </div>
+      </article>
+
+      <article class="project featured">
+        <div class="project-head">
+          <h2>Vigil</h2>
+        </div>
+        <ul class="meta">
+          <li>RAISE Hackathon 2026</li>
+          <li>Vultr track</li>
+          <li>Medical AI workflow</li>
+        </ul>
+        <p>
+          Post-market surveillance agent for EU MDR medical devices: triage, risk-file
+          checks, precedent retrieval, and reportability decisions.
+        </p>
+        <div class="video">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/bNshBdtpnlM"
+            title="Vigil demo video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="actions">
+          <a class="primary" href="https://github.com/umar-b/vultr-track">Open GitHub repo</a>
+        </div>
+      </article>
+
+      <article class="project">
+        <div class="project-head">
+          <h2>AI Service Desk Autopilot</h2>
+        </div>
+        <ul class="meta">
+          <li>START Hack</li>
+          <li>Techbold track</li>
+        </ul>
+        <p>
+          Technician workflow automation for service desk operations, built during START Hack.
+        </p>
+        <div class="actions">
+          <a class="primary" href="https://github.com/umar-b/techbold_track_start_hack">Open GitHub repo</a>
+        </div>
+      </article>
     </section>
 
     <footer class="footer">
